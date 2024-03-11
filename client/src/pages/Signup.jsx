@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import OAuth from '../components/Oauth'
 
 export default function Login() {
     const navigate = useNavigate()
@@ -31,7 +32,7 @@ export default function Login() {
     <div>
          <div className=" bg-gradient-to-r from-blue-300   to-blue-100 w-full min-h-screen">
             <div className=" ">
-                <p className="text-5xl font-hantay text-center  pt-5 sm:text-6xl md:text-7xl lg:text-8xl ">Hantay</p>
+                <p className="text-5xl font-hantay text-center  pt-3 sm:text-6xl md:text-7xl lg:text-8xl ">Hantay</p>
                 <p className='text-sm sm:text-lg md:text-xl lg:text-2xl text-center font-serif'>-Where every flavour tells a story</p>
             </div>
             <div className=" flex flex-col-reverse  gap-5  lg:gap-0">
@@ -47,6 +48,9 @@ export default function Login() {
                                 <input className=' text-sm py-3 px-3 rounded-lg ' id='password' type="password" placeholder='Password' onChange={handelChange}/>
                                 <div className=" flex justify-center">
                                     <button type='submit' className=' bg-black text-white py-2 px-14 rounded-lg items-center lg:text-lg '>Signup</button>
+                                </div>
+                                <div className="flex justify-center">
+                                    <OAuth/>
                                 </div>
                             </form>
                             <div className=" flex mt-3 justify-center">

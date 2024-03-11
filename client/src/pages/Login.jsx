@@ -1,8 +1,12 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Oauth from '../components/Oauth'
+import { SignInFailure,SignInSuccess,SignInstart } from '../Redux/UserSlice'
+import { useDispatch } from 'react-redux'
 
 export default function Login() {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     //holds data
     const [formData,setFormData]=useState({
@@ -15,14 +19,17 @@ export default function Login() {
     }
     //handel login
     const handelSubmit=async(e)=>{
+        dispatch(SignInstart())
         e.preventDefault()
         try {
             const res = await axios.post('api/user/login',formData)
             if(res.status === 200){
+                dispatch(SignInSuccess(res.data))
                 console.log("Login success")
                 navigate('/home')
             }
         } catch (error) {
+            dispatch(SignInFailure(res.message))
             console.log(error.message)
         }
     }
@@ -48,6 +55,9 @@ export default function Login() {
                                 </div>
                                 <div className=" flex justify-center">
                                     <button type='submit' className=' bg-black text-white py-2 px-14 rounded-lg items-center lg:text-lg '>Login</button>
+                                </div>
+                                <div className="flex justify-center">
+                                    <Oauth/>
                                 </div>
                             </form>
                             <div className=" flex mt-3 justify-center">

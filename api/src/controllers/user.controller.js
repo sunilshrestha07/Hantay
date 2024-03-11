@@ -49,20 +49,65 @@ export const login = async(req,res,next)=>{
         return next(errorHandler(404,"User not found"))
     }
     const validPassword = bcryptjs.compareSync(password,validUser.password)
+
+    
     if(!validPassword){
         return next(errorHandler(404,"Incorrect password"))
     }
-
     //sending details except password
     const {password:pass,...rest}=validUser._doc
-
     //sending token 
     const token = jwt.sign({id:validUser._id},process.env.JWT_SECRET)
     res.status(200).cookie('access_token',token,{
         httpOnly: true}).json(rest)
-
-
    } catch (error) {
     
    }
 }
+
+
+export const googleLogin = async (req, res, next) => {
+    const { name, email, profilePicture } = req.body;
+
+    try {
+        // Check if the user with the given email already exists
+        const user = await User.findOne({ email });
+
+        if (user) {
+            // If the user exists, generate a JWT token for the user
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+            const { password, ...rest } = user._doc;
+
+            // Send the JWT token in a cookie
+            res.status(200).cookie('access_token', token, {
+                httpOnly: true,
+            }).json(rest);
+        } else {
+            // If the user doesn't exist, create a new user with generated password
+            const generatedPassword = name + Math.random().toString(9).slice(-4);
+            const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
+
+            const newUser = new User({
+                name,
+                email,
+                password: hashedPassword,
+                profilePicture,
+            });
+
+            // Generate JWT token for the new user
+            const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+            const { password, ...rest } = newUser._doc;
+
+            // Save the new user to the database
+            await newUser.save();
+
+            // Send the JWT token in a cookie
+            res.status(200).cookie('access_token', token, {
+                httpOnly: true,
+            }).json(rest);
+        }
+    } catch (error) {
+        // Handle errors and return an appropriate response
+        return next(errorHandler(401, 'Error login with Google'));
+    }
+};
