@@ -1,7 +1,9 @@
+import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Login() {
+    const navigate = useNavigate()
     //holds data
     const [formData,setFormData]=useState({
         email:'',
@@ -12,9 +14,17 @@ export default function Login() {
         setFormData({...formData,[e.target.id]:e.target.value})
     }
     //handel login
-    const handelSubmit=(e)=>{
+    const handelSubmit=async(e)=>{
         e.preventDefault()
-        console.log(formData)
+        try {
+            const res = await axios.post('api/user/login',formData)
+            if(res.status === 200){
+                console.log("Login success")
+                navigate('/home')
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
     }
   return (
     <div>
