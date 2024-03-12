@@ -43,9 +43,9 @@ export default function Login() {
                         </div>
                         <div className=" w-2/3 md:w-1/2 xl:w-2/6" >
                             <form className=' flex flex-col gap-5 ' onSubmit={handelSubmit}>
-                                <input className=' text-sm py-3 px-3 rounded-lg ' id='name' type="text" placeholder='Fullname' onChange={handelChange}/>
-                                <input className=' text-sm py-3 px-3 rounded-lg ' id='email' type="email" placeholder='Email' onChange={handelChange}/>
-                                <input className=' text-sm py-3 px-3 rounded-lg ' id='password' type="password" placeholder='Password' onChange={handelChange}/>
+                                <input className=' text-sm py-3 px-3 rounded-lg ' required id='name' type="text" placeholder='Fullname' onChange={handelChange}/>
+                                <input className=' text-sm py-3 px-3 rounded-lg ' required id='email' type="email" placeholder='Email' onChange={handelChange}/>
+                                <input className=' text-sm py-3 px-3 rounded-lg ' required id='password' type="password" placeholder='Password' onChange={handelChange}/>
                                 <div className=" flex justify-center">
                                     <button type='submit' className=' bg-black text-white py-2 px-14 rounded-lg items-center lg:text-lg '>Signup</button>
                                 </div>

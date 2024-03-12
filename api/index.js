@@ -3,6 +3,7 @@ import {app} from './App.js'
 import dotenv from 'dotenv'
 dotenv.config()
 import userRouter from "./src/routes/user.route.js";
+import adminRouter from './src/routes/admin.route.js'
 
 connectDB()  //imported from db the actual connect process is there
 .then(()=>{
@@ -21,6 +22,7 @@ app.get('/test',(req,res)=>{
 //create routes 
 
 app.use('/api',userRouter)
+app.use('/api',adminRouter)
 
 
 

@@ -44,7 +44,7 @@ const handelSubmit = async (e) => {
     <div>
          <div className=" bg-gradient-to-r from-blue-300   to-blue-100 w-full min-h-screen">
             <div className=" ">
-                <p className="text-5xl font-hantay text-center  pt-5 sm:text-6xl md:text-7xl lg:text-8xl ">Hantay</p>
+                <p className="text-5xl font-hantay text-center pt-1   sm:text-6xl md:text-7xl lg:text-8xl ">Hantay</p>
                 <p className='text-sm sm:text-lg md:text-xl lg:text-2xl text-center font-serif'>-Where every flavour tells a story</p>
             </div>
             <div className=" flex flex-col-reverse  gap-5  lg:gap-0">
@@ -82,7 +82,7 @@ const handelSubmit = async (e) => {
                         </div>
                     </div>
                 </div>
-                <div className="h-40 flex justify-center items-center my-6 mr-3">
+                <div className="h-40 flex justify-center items-center my-4 mr-3">
                     <img className=' h-48 aspect-video object-cover ' src="./src/assets/logo.png" alt="" />
                 </div>
             </div>
