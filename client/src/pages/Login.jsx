@@ -1,11 +1,14 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Oauth from '../components/Oauth'
 import { SignInFailure,SignInSuccess,SignInstart } from '../Redux/UserSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { Alert } from 'flowbite-react'
+import { HiInformationCircle } from 'react-icons/hi';
 
 export default function Login() {
+    const {loading,error}=useSelector((state)=>state.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     //holds data
@@ -17,22 +20,26 @@ export default function Login() {
     const handelChange=(e)=>{
         setFormData({...formData,[e.target.id]:e.target.value})
     }
-    //handel login
-    const handelSubmit=async(e)=>{
-        dispatch(SignInstart())
-        e.preventDefault()
-        try {
-            const res = await axios.post('api/user/login',formData)
-            if(res.status === 200){
-                dispatch(SignInSuccess(res.data))
-                console.log("Login success")
-                navigate('/home')
-            }
-        } catch (error) {
-            dispatch(SignInFailure(res.message))
-            console.log(error.message)
+
+  //handel login
+const handelSubmit = async (e) => {
+    try {
+        dispatch(SignInstart());
+        e.preventDefault();
+
+        const res = await axios.post('api/user/login', formData);
+
+        if (res.status === 200) {
+            dispatch(SignInSuccess(res.data));
+            console.log('Login success');
+            navigate('/home');
         }
+    } catch (error) {
+        dispatch(SignInFailure(error.message));
+        console.log(error.message);
     }
+};
+
   return (
     <div>
          <div className=" bg-gradient-to-r from-blue-300   to-blue-100 w-full min-h-screen">
@@ -48,13 +55,13 @@ export default function Login() {
                         </div>
                         <div className=" w-2/3 md:w-1/2 mb-5 xl:w-2/6" >
                             <form className=' flex flex-col gap-5 ' onSubmit={handelSubmit}>
-                                <input className=' text-sm py-3 px-3 rounded-lg ' id='email' type="email" placeholder='Email' onChange={handelChange}/>
-                                <input className=' text-sm py-3 px-3 rounded-lg ' id='password' type="password" placeholder='Password' onChange={handelChange}/>
+                                <input className=' text-sm py-3 px-3 rounded-lg ' required id='email' type="email" placeholder='Email' onChange={handelChange}/>
+                                <input className=' text-sm py-3 px-3 rounded-lg ' required id='password' type="password" placeholder='Password' onChange={handelChange}/>
                                 <div className=" flex justify-end">
                                     <p className=' text-blue-800 text-sm'>Forgot your password?</p>
                                 </div>
                                 <div className=" flex justify-center">
-                                    <button type='submit' className=' bg-black text-white py-2 px-14 rounded-lg items-center lg:text-lg '>Login</button>
+                                    <button type='submit' className={` bg-black text-white py-2 px-14 rounded-lg items-center lg:text-lg ${loading ? 'disabled' : ''}`}>Login</button>
                                 </div>
                                 <div className="flex justify-center">
                                     <Oauth/>
@@ -63,6 +70,15 @@ export default function Login() {
                             <div className=" flex mt-3 justify-center">
                                 <p>Don't have an account? <span><Link to="/signup" className='text-blue-800 '>Singup</Link></span> </p>
                             </div>
+                            {error ? (
+                                <div className=" mt-2">
+                                    <Alert color="failure" icon={HiInformationCircle}>
+                                        <span className="font-small">{error}</span>
+                                    </Alert>
+                                </div>
+                            ):(
+                                <div className=""></div>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,7 @@ export default function Login() {
         }
     }
   return (
-    <div>
+    <div className=''>
          <div className=" bg-gradient-to-r from-blue-300   to-blue-100 w-full min-h-screen">
             <div className=" ">
                 <p className="text-5xl font-hantay text-center  pt-3 sm:text-6xl md:text-7xl lg:text-8xl ">Hantay</p>
@@ -41,7 +41,7 @@ export default function Login() {
                         <div className=" mx-5 my-5">
                             <p className=' text-xl font-serif lg:text-2xl'>Log in to your Account</p>
                         </div>
-                        <div className=" w-2/3 md:w-1/2 mb-5 xl:w-2/6" >
+                        <div className=" w-2/3 md:w-1/2 xl:w-2/6" >
                             <form className=' flex flex-col gap-5 ' onSubmit={handelSubmit}>
                                 <input className=' text-sm py-3 px-3 rounded-lg ' id='name' type="text" placeholder='Fullname' onChange={handelChange}/>
                                 <input className=' text-sm py-3 px-3 rounded-lg ' id='email' type="email" placeholder='Email' onChange={handelChange}/>
@@ -53,13 +53,13 @@ export default function Login() {
                                     <OAuth/>
                                 </div>
                             </form>
-                            <div className=" flex mt-3 justify-center">
+                            <div className=" flex mt-5 justify-center">
                                 <p>Already have an account? <span><Link to="/" className='text-blue-800 '>Login</Link></span> </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="h-40 flex justify-center items-center my-6 mr-3">
+                <div className="h-40 flex justify-center items-center ">
                     <img className=' h-48 aspect-video object-cover ' src="./src/assets/logo.png" alt="" />
                 </div>
             </div>
