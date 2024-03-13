@@ -3,8 +3,8 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPrivatePage from './pages/LoginPrivatePage'
-import AdminPrivatePage from './pages/AdminPrivatePage';
-import AdminDashboard from './pages/AdminDashboard';
+import PrivateDashboard from './pages/PrivateDashboard';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
           <Route element={<LoginPrivatePage/>}>
             <Route path='/home' element={<Home/>}/>
           </Route>
-          <Route element={<AdminPrivatePage/>}>
-            <Route path='/admindashboard' element={<AdminDashboard/>}/>
+          <Route element={<PrivateDashboard/>}>
+            <Route path='/dashboard' element={<Dashboard/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

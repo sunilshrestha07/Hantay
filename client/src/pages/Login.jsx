@@ -1,14 +1,15 @@
 import axios from 'axios'
-import React, {  useEffect, useState } from 'react'
+import React, {   useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Oauth from '../components/Oauth'
 import { SignInFailure,SignInSuccess,SignInstart } from '../Redux/UserSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Alert } from 'flowbite-react'
 import { HiInformationCircle } from 'react-icons/hi';
 
 export default function Login() {
-    const {loading,error}=useSelector((state)=>state.user)
+    const [loading,setLoading]=useState(false)
+    const [error,setError]=useState(false)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     //holds data
@@ -25,17 +26,21 @@ export default function Login() {
 const handelSubmit = async (e) => {
     try {
         dispatch(SignInstart());
+        setLoading(true)
         e.preventDefault();
 
         const res = await axios.post('api/user/login', formData);
 
         if (res.status === 200) {
             dispatch(SignInSuccess(res.data));
+            setLoading(false)
             console.log('Login success');
             navigate('/home');
         }
     } catch (error) {
         dispatch(SignInFailure(error.message));
+        setError(error.message)
+        setLoading(false)
         console.log(error.message);
     }
 };
