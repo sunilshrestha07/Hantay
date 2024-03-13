@@ -35,7 +35,7 @@ const handelSubmit = async (e) => {
             dispatch(SignInSuccess(res.data));
             setLoading(false)
             console.log('Login success');
-            navigate('/home');
+            navigate('/');
         }
     } catch (error) {
         dispatch(SignInFailure(error.message));

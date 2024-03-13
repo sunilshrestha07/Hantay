@@ -4,6 +4,5 @@ import {Outlet , Navigate} from 'react-router-dom'
 
 export default function PrivateDashboard() {
     const {currentUser}=useSelector((state)=>state.user)
-
-    return currentUser ? <Outlet/> : <Navigate to='/'/>
+    return currentUser ? <Outlet/> : <Navigate to='/login'/>
 }

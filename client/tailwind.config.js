@@ -9,7 +9,8 @@ export default {
     extend: {
       fontFamily:{
         hantay:["Irish Grover"],
-        hantay1:["Madimi One"]
+        hantay1:["Madimi One"],
+        hanuman:['Hanuman']
       }
     },
   },

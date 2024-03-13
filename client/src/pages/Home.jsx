@@ -1,43 +1,35 @@
-import React, { useState } from 'react'
-import {useSelector} from 'react-redux'
+import React from 'react'
+import Navbar from '../pages/Navbar'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
-  const {currentUser}=useSelector((state)=>state.user)
-  const [show,setShow]=useState(false)
-
-  const handelSidebar=()=>{
-    setShow(!show)
-  }
   return (
-    <div>
-      <div className="">
-        <div className=" flex justify-between gap-7 mx-2 mb-2">
-          <div className="md:hidden" onClick={handelSidebar}>
-            <img className={`h-10 w-8  object-contain `} src="./src/assets/menu.png" alt="" />
+    <>
+    <div className="">
+      {/* purpleBox section */}
+      <div className=" mx-2 mt-5 mb-5">
+        <div className=" w-full  h-32 rounded-3xl bg-purple-500 sm:bg-red-600 flex justify-evenly items-center">
+          <div className=" font-hanuman text-center font-medium w-3/4">
+            <div className=" text-sm mb-2">
+              <p>Fast and Yummy</p>
+              <p>Good for Your Tummy</p>
+            </div>
+            <div className="mb-2">
+              <p className=' text-xs'>After order has been paid and sent it can be counted in the system</p>
+            </div>
+            <div className=" flex justify-center items-center">
+              <Link to='' className=' bg-yellow-100 font-hanuman rounded-lg text-xs py-1 px-2 text-center'>View Details</Link>
+            </div>
           </div>
-          <div className="">
-            <input className=' py-1 rounded-lg mt-2' type="search" placeholder='Search' name="" id="" />
-          </div>
-          <div className="">
-            <img className=' h-8 w-8 object-cover rounded-full mt-2' src={currentUser.profilePicture} alt="" />
-          </div>
-        </div>
-        {/* sidebar */}
-        <div className=""> 
-            <div className={`w-56 h-screen  bg-slate-200 transition-all ease-in-out duration-300 ${show ? ' ml-0 ': '-ml-[100%]'}`}>
-              <ul>
-                <li><Link to={'/dashboard?tab=profile'}>profile</Link></li>
-              </ul>
+            <div className="  ">
+              <img className=' mix-blend-color-burn ' src="./src/assets/ilu.svg" alt="" />
             </div>
         </div>
-        {/* <div className="">
-          <p>Hello {currentUser.name}</p> 
-        </div>
-        <div className="">
-          <img className='h-52 w-44' src={currentUser.profilePicture} alt="" />
-        </div> */}
       </div>
+
+      {/* scroll box with food category */}
+      
     </div>
+    </>
   )
 }

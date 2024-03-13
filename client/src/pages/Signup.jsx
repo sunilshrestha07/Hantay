@@ -54,7 +54,7 @@ export default function Login() {
                                 </div>
                             </form>
                             <div className=" flex mt-5 justify-center">
-                                <p>Already have an account? <span><Link to="/" className='text-blue-800 '>Login</Link></span> </p>
+                                <p>Already have an account? <span><Link to="/login" className='text-blue-800 '>Login</Link></span> </p>
                             </div>
                         </div>
                     </div>
