@@ -7,8 +7,8 @@ export default function Home() {
     <>
     <div className="">
       {/* purpleBox section */}
-      <div className=" mx-2 mt-5 mb-5">
-        <div className=" w-full  h-32 rounded-3xl bg-purple-500 sm:bg-red-600 flex justify-evenly items-center">
+      <div className=" mx-2 mt-3 mb-3">
+        <div className=" w-full  h-32 rounded-3xl bg-customPurple sm:bg-red-600 flex justify-evenly items-center">
           <div className=" font-hanuman text-center font-medium w-3/4">
             <div className=" text-sm mb-2">
               <p>Fast and Yummy</p>
@@ -22,14 +22,44 @@ export default function Home() {
             </div>
           </div>
             <div className="  ">
-              <img className=' mix-blend-color-burn ' src="./src/assets/ilu.svg" alt="" />
+              <img className=' mix-blend-color-burn ' src="/assets/ilu.svg" alt="" />
             </div>
         </div>
       </div>
 
       {/* scroll box with food category */}
-      
-    </div>
+      <div className=" mx-2">
+        <div class=" w-full h-28 overflow-x-scroll  rounded-3xl scrollbar-hide ">
+            <div class="flex w-screen h-full gap-3 items-center">
+                <div class="flex-none w-20 h-[6.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                  <img src="/assets/bf.png" alt="Image" class="w-24 aspect-square object-cover -mt-1"/>
+                  <Link className='text-xs font-hanuman  flex flex-col  items-center mt-1'>BreakFast</Link>
+                </div> 
+                <div class="flex-none w-20 h-[6.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                  <img src="/assets/sna.jpg" alt="Image" class="w-24 aspect-square object-cover -mt-1"/>
+                  <Link className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Snacks</Link>
+                </div> 
+                <div class="flex-none w-20 h-[6.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                  <img src="/assets/ma.jpg" alt="Image" class="w-24 aspect-square object-cover -mt-1"/>
+                  <Link className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Main course</Link>
+                </div> 
+                <div class="flex-none w-20 h-[6.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                  <img src="/assets/salad.jpg" alt="Image" class="w-24 aspect-square object-cover -mt-1"/>
+                  <Link className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Salad</Link>
+                </div> 
+                <div class="flex-none w-20 h-[6.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                  <img src="/assets/drinks.jpg" alt="Image" class="w-24 aspect-square object-cover -mt-1"/>
+                  <Link className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Cold Drinks</Link>
+                </div>  
+                <div class="flex-none w-20 h-[6.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                  <img src="/assets/bf.png" alt="Image" class="w-24 aspect-square object-cover -mt-1"/>
+                  <Link className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Coffee</Link>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      </div>
     </>
   )
 }

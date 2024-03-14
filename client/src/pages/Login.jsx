@@ -88,7 +88,7 @@ const handelSubmit = async (e) => {
                     </div>
                 </div>
                 <div className="h-40 flex justify-center items-center my-4 mr-3">
-                    <img className=' h-48 aspect-video object-cover ' src="./src/assets/logo.png" alt="" />
+                    <img className=' h-48 aspect-video object-cover ' src="/assets/logo.png" alt="" />
                 </div>
             </div>
         </div>

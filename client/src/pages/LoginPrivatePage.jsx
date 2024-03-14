@@ -8,8 +8,10 @@ export default function LoginPrivatePage() {
 
   return currentUser ? (
     <>
-      <Navbar />
-      <Outlet />
+      <div className="">
+        <Navbar />
+        <Outlet />
+      </div>
     </>
   ) : (
     <Navigate to="/login" />

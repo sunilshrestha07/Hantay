@@ -11,8 +11,12 @@ export default {
         hantay:["Irish Grover"],
         hantay1:["Madimi One"],
         hanuman:['Hanuman']
+      },
+      colors:{
+          customPurple: 'rgba(150, 136, 238, 0.61)',
       }
     },
   },
-  plugins: [require('flowbite/plugin'),],
+  plugins: [require('flowbite/plugin'),
+  require('tailwind-scrollbar-hide')],
 }
