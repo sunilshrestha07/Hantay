@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SideDashboard from '../components/SideDashboard'
 import DashProfile from '../components/DashProfile'
+import Navbar from '../pages/Navbar'
 
 export default function Dashboard() {
   const location = useLocation()
@@ -16,6 +17,7 @@ export default function Dashboard() {
   },[location.search])
   return (
    <>
+   <Navbar/>
     <div className="md:flex ">
       <div className=" md:w-1/4 ">
         {/* this will be for sideDashboard */}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {useSelector} from 'react-redux'
+import Sidebar from '../components/Sidebar'
 import { Link } from 'react-router-dom'
 
 export default function Home() {
@@ -11,37 +12,24 @@ export default function Home() {
   }
   return (
     <div>
-      <div className="">
-        <div className=" flex justify-between gap-7 mx-2 mb-2">
+      <div className=" ">
+        <div className=" flex justify-between mx-2 gap-7 mb-2 ">
           <div className="md:hidden" onClick={handelSidebar}>
             <img className={`h-10 w-8  object-contain `} src={`${show ? '/assets/x.png':'/assets/menu.png'}`} alt="" />
           </div>
-          <div className="">
+          <div className="hidden md:block ">
+            <Link to='/'><p className=' font-hantay text-2xl font-medium mt-2 md:ml-11'>Hantay</p></Link>
+          </div>
+          <div className=" ">
             <input className=' py-1 rounded-lg mt-2' type="search" placeholder='Search' name="" id="" />
           </div>
           <div className="">
-            <img className=' h-8 w-8 object-cover rounded-full mt-2' src={currentUser.profilePicture} alt="" />
+            <img className=' h-8 w-8 object-cover rounded-full mt-2 lg:mr-11' src={currentUser.profilePicture} alt="" />
           </div>
         </div>
         {/* sidebar */}
-        <div className=""> 
-            <div className={`w-52 min-h-[40.3rem] flex flex-col gap-5 absolute md:relative  bg-white transition-all ease-in-out duration-300 ${show ? ' ml-0 ': '-ml-[100%]'} md:ml-0`}>
-                <div className=" flex items-center gap-2 bg-white h-16 justify-center mt-5 rounded-lg">
-                  <Link to={'/dashboard?tab=profile'} className='text-lg font-serif'>Profile</Link><span><img className=' h-5 w-5 object-contain' src="/assets/user.png" alt="" /></span>
-                </div>
-                <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg">
-                  <Link to={'/dashboard?tab=profile'} className='text-lg font-serif'>Home</Link><span><img className=' h-5 w-5 object-contain' src="/assets/home.png" alt="" /></span>
-                </div>
-                <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg">
-                  <Link to={'/dashboard?tab=profile'} className='text-lg font-serif'>Cart</Link><span><img className=' h-5 w-5 object-contain' src="/assets/trolley.png" alt="" /></span>
-                </div>
-                <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg">
-                  <Link to={'/dashboard?tab=profile'} className='text-lg font-serif'>About</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logo.png" alt="" /></span>
-                </div>
-                <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg ">
-                  <Link to={'/dashboard?tab=profile'} className='text-lg font-serif'>Logout</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logout.png" alt="" /></span>
-                </div>
-            </div>
+        <div className={`${show ? ' -ml-5 ': '-ml-[90%]'} transition-all ease-in-out duration-300  md:hidden`}>
+          <Sidebar/>
         </div>
       </div>
     </div>

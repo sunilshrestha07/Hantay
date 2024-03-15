@@ -5,6 +5,8 @@ import LoginPrivatePage from './pages/LoginPrivatePage'
 import PrivateDashboard from './pages/PrivateDashboard';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import FoodView from './pages/FoodView';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -15,9 +17,8 @@ function App() {
           <Route path="/signup" element={<Signup />} /> 
           <Route element={<LoginPrivatePage/>}>
             <Route path='/' element={<Home/>}/>
-          </Route>
-          <Route element={<PrivateDashboard/>}>
-            <Route path='/dashboard' element={<Dashboard/>}/>
+            <Route path='/foodview' element={<FoodView/>}/>
+            <Route path='profile' element={<Profile/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

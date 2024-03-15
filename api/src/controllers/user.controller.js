@@ -2,6 +2,7 @@ import {errorHandler} from '../utils/errorHandler.utils.js'
 import bcryptjs from 'bcryptjs'
 import User from '../models/user.model.js'
 import jwt from 'jsonwebtoken'
+import cloudinary from '../utils/cloudinary.utils.js'
 
 
 export const test = (req,res,next)=>{
@@ -111,3 +112,47 @@ export const googleLogin = async (req, res, next) => {
         return next(errorHandler(401, 'Error login with Google'));
     }
 };
+
+
+
+
+//update user profile
+ 
+export const userUpdate = async (req,res,next)=>{
+    if(req.user.id !== req.params.userId){
+        return next(errorHandler(403,'You are not allowed'))
+    }
+    
+    let cloudinaryResponse;
+    if(req.file){
+        const updateImage = req.file
+        try {
+             cloudinaryResponse = await cloudinary.uploader.upload(updateImage.path)
+        } catch (error) {
+            return next(errorHandler(401,'error uploading to cloudinary'))
+        }
+    }
+
+    if(req.body.password){
+        if(req.body.password.length < 6){
+            return next(errorHandler(403,'Password shoudl contains at least 6 characters'))
+        }
+        req.body.password = bcryptjs.hashSync(req.body.password,10)
+    }
+
+    try {
+        const updateUser = await User.findByIdAndUpdate(req.params.userId,{
+            $set:{
+                name: req.body.name,
+                email : req.body.email,
+                password: req.body.password,
+                avatar:cloudinaryResponse ? cloudinaryResponse.secure_url : undefined
+            }
+        },{new: true})
+        const {password,...rest}=updateUser._doc
+        res.status(200).json(rest)
+    } catch (error) {
+        return next(errorHandler(404,error))
+    }
+}
+

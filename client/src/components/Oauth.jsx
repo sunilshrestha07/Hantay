@@ -34,7 +34,7 @@ export default function Oauth() {
               const res = await axios.post('api/user/google',userData)
               if(res.status === 200){
                 dispatch(SignInSuccess(res.data))
-                navigate('/home')
+                navigate('/')
                 console.log("Log in with google success")
               }
         } catch (error) {
