@@ -1,9 +1,24 @@
+import axios from 'axios'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { logoutSuccess } from '../Redux/UserSlice'
 
 export default function Sidebar() {
+  const dispatch = useDispatch()
   const {currentUser}=useSelector((state)=>state.user)
+
+  const handelLogout = async()=>{
+    try {
+      const res = await axios.post('api/logout')
+      if(res.status === 200){
+        useDispatch(logoutSuccess())
+        console.log('logout success')
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
   return (
     <>
      <div className=""> 
@@ -21,7 +36,7 @@ export default function Sidebar() {
                   <Link to={'/about'} className='text-lg font-serif'>About</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logo.png" alt="" /></span>
                 </div>
                 <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg ">
-                  <Link to={'/login'} className='text-lg font-serif'>Logout</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logout.png" alt="" /></span>
+                  <Link to={'/login'} className='text-lg font-serif' onClick={handelLogout}>Logout</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logout.png" alt="" /></span>
                 </div>
                 
                 {/* if user is admin show the add post */}

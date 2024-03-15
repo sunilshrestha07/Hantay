@@ -119,7 +119,9 @@ export const googleLogin = async (req, res, next) => {
 //update user profile
  
 export const userUpdate = async (req,res,next)=>{
-    
+    if(req.user.id !==req.params.userId){
+        return next(errorHandler(401,'You are not authorized'))
+    }
     let cloudinaryResponse;
     if(req.file){
         const updateImage = req.file
@@ -153,3 +155,24 @@ export const userUpdate = async (req,res,next)=>{
     }
 }
 
+
+export const userDelete = async (req,res,next)=>{
+    if(req.user.id !== req.params.userId){
+        return next(errorHandler(401,'You are not authorized'))
+    }
+    try {
+        const userDel = await User.findByIdAndDelete(req.params.userId)
+        res.status(200).send("Delete success")
+    } catch (error) {
+        return next(errorHandler(401,'Error deleting user'))
+    }
+}
+
+
+export const logout = async (req, res, next) => {
+    try {
+        res.clearCookie('access_token').status(200).send("Logout success");
+    } catch (error) {
+        return next(errorHandler(401, 'Error logging out'));
+    }
+}
