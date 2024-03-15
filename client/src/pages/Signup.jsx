@@ -22,7 +22,7 @@ export default function Login() {
             const res = await axios.post('api/user/signup',formData)
             if(res.status === 200){
                 console.log(formData)
-                navigate('/')
+                navigate('/login')
             }
         } catch (error) {
            console.log(error.message) 

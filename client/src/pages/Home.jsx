@@ -38,47 +38,47 @@ export default function Home() {
 
           {/* scroll box with food category */}
           <div className=" mx-2">
-            <div class=" w-full h-28 sm:h-[8.5rem] overflow-x-scroll lg:overflow-hidden lg:w-11/12 rounded-3xl scrollbar-hide lg:flex lg:justify-center ">
-                <div class="flex w-screen h-full gap-3 sm:gap-5 md:gap-6 justify-center lg:ml-16">
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+            <div className=" w-full h-28 sm:h-[8.5rem] overflow-x-scroll lg:overflow-hidden lg:w-11/12 rounded-3xl scrollbar-hide lg:flex lg:justify-center ">
+                <div className="flex w-screen h-full gap-3 sm:gap-5 md:gap-6 justify-center lg:ml-16">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/bf.png" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/bf.png" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>BreakFast</p>
                       </Link>
                     </div> 
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/sna.jpg" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/sna.jpg" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Snacks</p>
                       </Link>
                     </div> 
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/salad.jpg" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/salad.jpg" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Salad</p>
                       </Link>
                     </div> 
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/drinks.jpg" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/drinks.jpg" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Drinks</p>
                       </Link>
                     </div> 
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/ma.jpg" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/ma.jpg" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Main</p>
                       </Link>
                     </div> 
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/bf.png" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/bf.png" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>Coffee</p>
                       </Link>
                     </div> 
-                    <div class="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
+                    <div className="flex-none w-20 sm:w-28 h-[6.5rem] sm:h-[8.5rem] bg-gray-100  rounded-lg overflow-hidden">
                       <Link to='/foodview'>
-                      <img src="/assets/bf.png" alt="Image" class="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
+                      <img src="/assets/bf.png" alt="Image" className="w-24 sm:w-32 aspect-square object-cover -mt-1"/>
                       <p className='text-xs font-hanuman  flex flex-col  items-center mt-1'>BreakFast</p>
                       </Link>
                     </div> 

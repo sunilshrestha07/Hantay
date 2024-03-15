@@ -119,9 +119,6 @@ export const googleLogin = async (req, res, next) => {
 //update user profile
  
 export const userUpdate = async (req,res,next)=>{
-    if(req.user.id !== req.params.userId){
-        return next(errorHandler(403,'You are not allowed'))
-    }
     
     let cloudinaryResponse;
     if(req.file){
@@ -146,7 +143,7 @@ export const userUpdate = async (req,res,next)=>{
                 name: req.body.name,
                 email : req.body.email,
                 password: req.body.password,
-                avatar:cloudinaryResponse ? cloudinaryResponse.secure_url : undefined
+                profilePicture:cloudinaryResponse ? cloudinaryResponse.secure_url : undefined
             }
         },{new: true})
         const {password,...rest}=updateUser._doc

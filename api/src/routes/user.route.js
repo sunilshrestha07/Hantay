@@ -9,6 +9,6 @@ router.get('/user/test',test)
 router.post('/user/signup',signup)
 router.post('/user/login',login)
 router.post('/user/google',googleLogin)
-router.put('/update/:userId',verifyToken,upload.single('profilePicture'),userUpdate)
+router.put('/update/:userId',upload.single('profilePicture'),userUpdate)
 
 export default router
