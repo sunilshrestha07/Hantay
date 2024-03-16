@@ -5,8 +5,10 @@ import {updateSuccess} from '../Redux/UserSlice'
 import { Alert } from 'flowbite-react'
 import { HiInformationCircle } from 'react-icons/hi';
 import { deleteSuccess ,logoutSuccess} from '../Redux/UserSlice'
+import {useNavigate} from 'react-router-dom'
 
 export default function Profile() {
+  const navigate = useNavigate();
   const dispatch=useDispatch()
   const {currentUser}=useSelector((state)=>state.user)
   const fileRef=useRef()
@@ -55,6 +57,7 @@ export default function Profile() {
         setTimeout(()=>{
           setMessage('');
         },2000)
+        window.location.reload();// refresh page
         console.log("userUpdated success")
         setLoading(false)
       }
