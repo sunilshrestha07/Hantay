@@ -33,7 +33,7 @@ export default function Sidebar() {
                   <Link to={'/cart'} className='text-lg font-serif'>Cart</Link><span><img className=' h-5 w-5 object-contain' src="/assets/trolley.png" alt="" /></span>
                 </div>
                 <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg">
-                  <Link to={'/about'} className='text-lg font-serif'>About</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logo.png" alt="" /></span>
+                  <Link to={'/about'} className='text-lg font-serif'>About</Link><span><img className=' h-5 w-5 object-contain' src="/assets/about.png" alt="" /></span>
                 </div>
                 <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg ">
                   <Link to={'/login'} className='text-lg font-serif' onClick={handelLogout}>Logout</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logout.png" alt="" /></span>
@@ -44,7 +44,7 @@ export default function Sidebar() {
                   {currentUser.isAdmin ? (
                     <div className="">
                       <div className=" flex items-center gap-2 bg-white h-16 justify-center rounded-lg ">
-                        <Link to={'/login'} className='text-lg font-serif'>Add Post</Link><span><img className=' h-5 w-5 object-contain' src="/assets/logout.png" alt="" /></span>
+                        <Link to={'/post'} className='text-lg font-serif'>Add Post</Link><span><img className=' h-5 w-5 object-contain' src="/assets/add.png" alt="" /></span>
                       </div>
                     </div>
                   ):(

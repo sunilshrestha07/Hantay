@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import FoodView from './pages/FoodView';
 import Profile from './pages/Profile';
+import Post from './pages/Post';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='/' element={<Home/>}/>
             <Route path='/foodview' element={<FoodView/>}/>
             <Route path='profile' element={<Profile/>}/>
+            <Route path='/post' element={<Post/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

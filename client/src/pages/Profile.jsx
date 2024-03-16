@@ -57,7 +57,6 @@ export default function Profile() {
         setTimeout(()=>{
           setMessage('');
         },2000)
-        window.location.reload();// refresh page
         console.log("userUpdated success")
         setLoading(false)
       }
