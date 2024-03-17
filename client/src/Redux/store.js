@@ -2,10 +2,12 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import userReducer from './UserSlice';
+import foodReducer from './FoodSlice'
 
 // Combine your reducers into a root reducer
 const rootReducer = combineReducers({
     user: userReducer,
+    food:foodReducer
 });
 
 // Configuration for Redux Persist

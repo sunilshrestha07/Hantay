@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from '../pages/Navbar'
 import { Link } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
+import Foods from '../components/Foods'
 
 export default function Home() {
   return (
@@ -9,12 +9,12 @@ export default function Home() {
     <div className="">
       <div className=" md:flex gap-10">
         {/* sidebar */}
-        <div className=" hidden md:block  md:w-1/6 ">
+        <div className=" hidden md:block  md:w-1/6 z-10 ">
           <Sidebar/>
         </div>
 
         {/* homecomponets */}
-        <div className=" md:w-9/12 md:mx-10 sm:mt-3">
+        <div className=" md:w-9/12 md:mx-10 sm:mt-3 ">
           {/* purpleBox section */}
           <div className=" mx-2 mt-3 mb-3">
             <div className=" w-full  h-32 sm:h-36 md:h-40 lg:h-48 rounded-3xl bg-customPurple flex justify-evenly items-center">
@@ -84,6 +84,9 @@ export default function Home() {
                     </div> 
                 </div>
             </div>
+          </div>
+          <div className=" mx-2">
+            <Foods/>
           </div>
         </div>
       </div>

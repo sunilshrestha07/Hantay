@@ -21,7 +21,7 @@ export default function Sidebar() {
   }
   return (
     <>
-     <div className=""> 
+     <div className=" z-50 "> 
             <div className={`w-52 sm:w-48 min-h-[40.3rem] flex flex-col gap-5 lg:gap-12 absolute md:relative  bg-white `}>
                 <div className=" flex items-center gap-2 bg-white h-16 justify-center mt-3 md:mt-0 lg:mt-1 rounded-lg">
                   <Link to={'/profile'} className='text-lg font-serif'>Profile</Link><span><img className=' h-5 w-5 object-contain' src="/assets/user.png" alt="" /></span>

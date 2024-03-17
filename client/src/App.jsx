@@ -21,6 +21,7 @@ function App() {
             <Route path='/foodview' element={<FoodView/>}/>
             <Route path='profile' element={<Profile/>}/>
             <Route path='/post' element={<Post/>}/>
+            <Route path='/foodview/:id' element={<FoodView/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
