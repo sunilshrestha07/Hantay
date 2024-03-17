@@ -14,6 +14,7 @@ export default function Foods() {
       if(res.status === 200){
         setFoodData(res.data)
         dispatch(getAllData(res.data))
+        console.log(res.data)
     }
     } catch (error) {
       console.log(error.message)
