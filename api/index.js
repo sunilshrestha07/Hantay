@@ -1,19 +1,10 @@
 import connectDB from "./src/db/index.js";
-import express from "express";
-import cookieParser from "cookie-parser";
-import cors from 'cors'
+import {app} from './App.js'
 import dotenv from 'dotenv'
 dotenv.config()
 import userRouter from "./src/routes/user.route.js";
 import adminRouter from './src/routes/admin.route.js'
 import postRouter from './src/routes/post.route.js'
-import path from 'path';
-
-const app = express()
-
-app.use(cors())
-app.use(express.json());
-app.use(cookieParser());
 
 connectDB()  //imported from db the actual connect process is there
 .then(()=>{
@@ -25,8 +16,9 @@ connectDB()  //imported from db the actual connect process is there
         console.log("Error ",error)
 })
 
-const __dirname = path.resolve()
-
+app.get('/test',(req,res)=>{
+    res.send('Api is working')
+})
 
 //create routes 
 
@@ -35,11 +27,7 @@ app.use('/api',adminRouter)
 app.use('/api',postRouter)
 
 
-app.use(express.static(path.join(__dirname, 'client')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-});
 
 //create function to handel errors
 app.use((err,req,res,next)=>{

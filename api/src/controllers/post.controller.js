@@ -42,3 +42,13 @@ export const postFood = async (req, res, next) => {
         return next(errorHandler(500, 'Internal Server Error'));
     }
 };
+
+
+export const getAllFoods = async (req,res,next)=>{
+    try {
+        const foods = await Food.find()
+        res.status(200).json(foods)
+    } catch (error) {
+        return next(errorHandler(401,'Internal server error'))
+    }
+}
