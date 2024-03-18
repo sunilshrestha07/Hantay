@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   const {currentUser}=useSelector((state)=>state.user)
   const [show,setShow]=useState(false)
+  const itemsInCart = useSelector(state => state.cart.items);
 
   const handelSidebar=()=>{
     setShow(!show)
@@ -28,6 +29,7 @@ export default function Home() {
       <div className=" ">
         <div className=" flex justify-between mx-2 gap-7 mb-2 ">
           <div className="md:hidden" onClick={handelSidebar}>
+            <div className={`${itemsInCart.length > 0 && !show ? 'bg-red-500 w-2 h-2 absolute rounded-full top-2 left-10':''}`}></div>
             <img className={`h-10 w-8  object-contain `} src={`${show ? '/assets/x.png':'/assets/menu.png'}`} alt="" />
           </div>
           <div className="hidden md:block ">

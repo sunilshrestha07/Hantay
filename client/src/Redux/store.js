@@ -3,11 +3,13 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import userReducer from './UserSlice';
 import foodReducer from './FoodSlice'
+import cartReducer from './CartSlice'
 
 // Combine your reducers into a root reducer
 const rootReducer = combineReducers({
     user: userReducer,
-    food:foodReducer
+    food:foodReducer,
+    cart:cartReducer
 });
 
 // Configuration for Redux Persist

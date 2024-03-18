@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import FoodView from './pages/FoodView';
 import Profile from './pages/Profile';
 import Post from './pages/Post';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='profile' element={<Profile/>}/>
             <Route path='/post' element={<Post/>}/>
             <Route path='/foodview/:id' element={<FoodView/>}/>
+            <Route path='/cart' element={<Cart/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

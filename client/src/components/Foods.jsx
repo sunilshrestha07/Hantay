@@ -14,7 +14,6 @@ export default function Foods() {
       if(res.status === 200){
         setFoodData(res.data)
         dispatch(getAllData(res.data))
-        console.log(res.data)
     }
     } catch (error) {
       console.log(error.message)
@@ -27,9 +26,9 @@ export default function Foods() {
   return (
     <>
     <div className=" mt-5 z-0">
-      <div className="  flex flex-wrap  justify-between gap-5 md:gap-0 xl:gap-5 ">
+      <div className="  flex flex-wrap  justify-between gap-0  md:gap-0 xl:gap-5 ">
         {foodData && foodData.map((food,index)=>(
-          <div className=" bg-slate-200 rounded-lg overflow-hidden " key={index}>
+          <div className=" bg-slate-200 rounded-lg overflow-hidden mb-5" key={index}>
               <Link to={`/foodview/${food._id}`}>
                   <div className="w-44 aspect-square">
                     <img className=' w-full h-full object-cover transition-transform  hover:scale-110' src={food.image} alt="foodImage" />
@@ -39,9 +38,6 @@ export default function Foods() {
                     <p>Rs:{food.price}</p>
                   </div>
               </Link>
-              <div className=" flex justify-center mb-1">
-                <button className=' bg-orange-300 py-0 px-3 rounded-lg'>Order</button>
-              </div>
             </div>
         ))}
       </div>

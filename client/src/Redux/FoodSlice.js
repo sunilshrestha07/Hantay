@@ -10,10 +10,23 @@ const foodSlice = createSlice({
     reducers: {
         getAllData: (state, action) => {
             state.allFoods = action.payload;
+        },
+        increaseItem: (state, action) => {
+            const item = state.allFoods.find((item) => item._id === action.payload);
+            if (item && item.quantity < 10) {
+                item.quantity += 1;
+            }
+        },
+        decreaseItem:(state,action)=>{
+            const item = state.allFoods.find((item)=>item._id === action.payload)
+            if(item && item.quantity >1){
+                item.quantity -=1
+            }
         }
+        
     }
 });
 
-export const { getAllData } = foodSlice.actions;
+export const { getAllData ,increaseItem,decreaseItem} = foodSlice.actions;
 export default foodSlice.reducer;
 
